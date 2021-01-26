@@ -1,0 +1,6 @@
+/home/ec2-user/rest-service/src/main/java/com/example/restservice/Message.java
+/home/ec2-user/rest-service/src/main/java/RecordId.java
+/home/ec2-user/rest-service/src/main/java/com/example/restservice/Greeting.java
+/home/ec2-user/rest-service/src/main/java/com/example/restservice/MessageTooLongException.java
+/home/ec2-user/rest-service/src/main/java/com/example/restservice/GreetingController.java
+/home/ec2-user/rest-service/src/main/java/com/example/restservice/RestServiceApplication.java

@@ -1,0 +1,6 @@
+com/example/restservice/MessageTooLongException.class
+com/example/restservice/Greeting.class
+com/example/restservice/RestServiceApplication.class
+com/example/restservice/Message.class
+com/example/restservice/GreetingController.class
+net/codejava/spring/RecordId.class
