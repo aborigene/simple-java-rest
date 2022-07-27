@@ -1,0 +1,12 @@
+config:
+  environments:
+    local:
+      target: "http://127.0.0.1:8888"
+      phases:
+        - duration: 1800
+          arrivalRate: 25
+scenarios:
+  - flow:
+    - log: "Running script...."
+    - get:
+        url: "/greeting?name=igor"
