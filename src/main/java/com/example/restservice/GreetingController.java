@@ -53,6 +53,12 @@ public class GreetingController {
 	}
 
 	@CrossOrigin(origins = "*")
+	@GetMapping("/sortear")
+	public Sorteio sorteio(){
+		return new Sorteio();
+	}
+
+	@CrossOrigin(origins = "*")
 	@GetMapping("/message")
 	public Message message(@RequestParam(value = "message", defaultValue = "SOME MESSAGE...") String message, @CookieValue(value = "dtCookie", defaultValue = "not-set") String dtCookie, @RequestParam(value = "record_id") String record_id){//, JdbcTemplate jt){
 		System.out.println(String.format(template, message));
