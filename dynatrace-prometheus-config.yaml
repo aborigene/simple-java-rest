@@ -1,0 +1,26 @@
+# Dynatrace ActiveGate Prometheus Scraping Configuration
+# 
+# To deploy this configuration:
+# 1. Copy to ActiveGate: /var/lib/dynatrace/remotepluginmodule/plugin_activegateconfiguration_prometheus/custom_config.yaml
+# 2. Or use Dynatrace API to upload the configuration
+#
+# For more info: https://www.dynatrace.com/support/help/extend-dynatrace/extend-metrics/ingestion-methods/prometheus
+
+scrape_configs:
+  - job_name: 'simple-java-rest'
+    scrape_interval: 60s
+    scrape_timeout: 10s
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['localhost:8080']
+        labels:
+          application: 'rest-service'
+          environment: 'production'
+          service: 'java-rest-api'
+    
+    # Optional: Filter metrics to reduce data volume
+    # metric_relabel_configs:
+    #   - source_labels: [__name__]
+    #     regex: '(http_server_requests_seconds.*|greeting_api_seconds.*|sortear_api_seconds.*|message_api_seconds.*|jvm_.*|process_.*)'
+    #     action: keep
+

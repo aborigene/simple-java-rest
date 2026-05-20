@@ -5,6 +5,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.lang.*;
 import java.util.UUID;
 
+import io.micrometer.core.annotation.Timed;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -42,6 +43,7 @@ public class GreetingController {
 
 	@CrossOrigin(origins = "*")
 	@GetMapping("/greeting")
+	@Timed(value = "greeting.api", description = "Time taken to return greeting", histogram = true)
 	public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name){//, JdbcTemplate jt) {
 		/*String sqlInsert = "insert into message_table (ID, UserName, MessageTime)"
 				+ " VALUES (?, ?, ?)";*/
@@ -54,12 +56,14 @@ public class GreetingController {
 
 	@CrossOrigin(origins = "*")
 	@GetMapping("/sortear")
+	@Timed(value = "sortear.api", description = "Time taken to return sortear", histogram = true)
 	public Sorteio sorteio(){
 		return new Sorteio();
 	}
 
 	@CrossOrigin(origins = "*")
 	@GetMapping("/message")
+	@Timed(value = "message.api", description = "Time taken to return message", histogram = true)
 	public Message message(@RequestParam(value = "message", defaultValue = "SOME MESSAGE...") String message, @CookieValue(value = "dtCookie", defaultValue = "not-set") String dtCookie, @RequestParam(value = "record_id") String record_id){//, JdbcTemplate jt){
 		System.out.println(String.format(template, message));
 		System.out.println("This is the dtCookie:");
